@@ -19,8 +19,8 @@ rescue StandardError => e
 end
 
 def calculate_distance_between_geo_locations(first_geo_location, second_geo_location)
-  first_geo_location  = first_geo_location.values
-  second_geo_location = second_geo_location.values
+  first_geo_location  = first_geo_location&.values
+  second_geo_location = second_geo_location&.values
   return -1 if first_geo_location == nil || second_geo_location == nil
 
   Geocoder::Calculations.distance_between(first_geo_location, second_geo_location, units: :km)
